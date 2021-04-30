@@ -1,0 +1,97 @@
+# Copyright (C) 2021 Gieffe edizioni srl
+# This file is distributed under the same license as the Post to Telegram plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Post to Telegram 0.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/post-to-telegram\n"
+"Last-Translator: root <root@giecloud1.gieffeedizioni.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-04-30T14:13:59+00:00\n"
+"PO-Revision-Date: 2021-04-30 16:14+0200\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: ptt\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+#: post-to-telegram.php:70 post-to-telegram.php:150
+msgid "Post to Telegram"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://software.gieffeedizioni.it"
+msgstr ""
+
+#. Description of the plugin
+msgid "Share your posts to your telegram channel."
+msgstr ""
+
+#. Author of the plugin
+msgid "Gieffe edizioni srl"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.gieffeedizioni.it"
+msgstr ""
+
+#: post-to-telegram.php:51
+msgid "Review your config before posting to Telegram."
+msgstr "Controlla la configurazione prima di postare su Telegram."
+
+#: post-to-telegram.php:66
+msgid "Last time posted:"
+msgstr "Postato l'ultima volta:"
+
+#: post-to-telegram.php:150 post-to-telegram.php:185
+msgid "Post to Telegram settings"
+msgstr "Impostazioni Post to Telegram"
+
+#: post-to-telegram.php:177
+msgid "Settings have been saved."
+msgstr "Impostazioni salvate."
+
+#: post-to-telegram.php:191
+msgid "Bot token"
+msgstr ""
+
+#: post-to-telegram.php:193
+msgid "Secret token of the Bot you are using to post."
+msgstr "Token segreto del Bot che userai per postare su Telegram."
+
+#: post-to-telegram.php:200
+msgid "Dont't know what is your channel ID or something is not working?"
+msgstr "Non conosci l'ID del canale o qualcosa non funziona?"
+
+#: post-to-telegram.php:201
+msgid "Leave channel fiels blank to get suggestions below."
+msgstr "Lascia il campo Canale vuoto per avere suggerimenti qui sotto."
+
+#: post-to-telegram.php:206
+msgid "Channel"
+msgstr "Canale"
+
+#: post-to-telegram.php:208
+msgid "Channel (name or id) to post to."
+msgstr "Nome o ID del Canale su cui postare"
+
+#: post-to-telegram.php:235
+msgid "Seems that your bot is not an administrator of the channel."
+msgstr "Sembra che il tuo bot non sia amministratore del canale."
+
+#: post-to-telegram.php:247
+msgid "Please check you bot token."
+msgstr "Per favore controlla il token del bot"
+
+#. Translators: 1 is channel name, 2 is channel ID
+#: post-to-telegram.php:262
+msgid "Your bot seems to be administrator of channel %1$s (Channel ID: %2$s)."
+msgstr "Sembra che il tuo bot sia amministratore del canale %1$s (ID canale: %2$s)."
+
+#: post-to-telegram.php:267
+msgid ""
+"No suggestion found. Try giving again your bot administration privileges in "
+"your channel."
+msgstr "Nessun suggerimento trovato. Prova a ridare ancora i permessi di amministratore del tuo canale al tuo bot."
