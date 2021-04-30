@@ -18,6 +18,27 @@ Having troubles finding your channel ID?
 Try revoking admin rights to your boot, give it admin rights again, and save the changes leaving Channel field empty.
 Maybe some hints will be shown!
 
+## Filters
+
+`ptt_query_params`
+ 
+Change request made to Telegram Bot API.
+_Example: adding text to the message_
+
+```php
+add_filter( 'ptt_query_params' , 'myprefix_telegram_before_text' , 10 , 3 );
+
+public function myprefix_telegram_before_text($params, $post_id, $method) {
+	if ($method === 'sendMessage') {
+		$params['text'] = '<b>Nuovo articolo!</b> '.$params['text'];
+	} else {
+		$params['caption'] = '<b>Nuovo articolo!</b> '.$params['caption'];
+	}
+	return $params;
+}
+```
+
+
 ### Privacy
 **To help us know the number of active installations of this plugin, we collect and store anonymized data when the plugin check in for updates. The date and unique plugin identifier are stored as plain text and the requesting URL is stored as a non-reversible hashed value. This data is stored for up to 28 days.**
 

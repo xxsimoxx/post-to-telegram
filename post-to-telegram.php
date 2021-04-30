@@ -94,6 +94,12 @@ class PostToTelegram{
 			return;
 		}
 
+		$options = get_option('ptt-config', $this->default_options);
+
+		if ($options['bot-token'] === '' || $options['channel'] === '') {
+			return false;
+		}
+
 		$page_url = get_permalink($post_id);
 
 		if ($page_url === false) {
@@ -101,24 +107,6 @@ class PostToTelegram{
 		}
 
 		$image_path = $this->get_thumbnail_path($post_id);
-
-		$posted = $this->post_to_telegram($page_url, $image_path);
-
-		if ($posted === true) {
-			update_post_meta($post_id, 'ptt-last-sent', date_i18n('D j F G:i'));
-			return;
-		}
-
-		// TODO: gestisci errore ($posted === false) a questo punto
-	}
-
-	private function post_to_telegram($page_url, $image_path = false) {
-
-		$options = get_option('ptt-config', $this->default_options);
-
-		if ($options['bot-token'] === '' || $options['channel'] === '') {
-			return false;
-		}
 
 		$params = [
 			'chat_id'		=> $options['channel'],
@@ -132,33 +120,19 @@ class PostToTelegram{
 			$params['photo']	= new \CURLFile($image_path);
 			$params['caption']	= $page_url;
 			$method				= 'sendPhoto';
-
 		}
+
+		$params = apply_filters('ptt_query_params', $params, $post_id, $method);
 
 		$response = $this->telegram_curl($options['bot-token'], $method, $params);
 		$result = json_decode($response, true);
 
-		return ($result['ok'] === true);
+		if ($result['ok'] === true) {
+			update_post_meta($post_id, 'ptt-last-sent', date_i18n('D j F G:i'));
+			return;
+		}
 
-	}
-
-	private function sendMessage($chatID, $message, $token) {
-		$params = [
-			'chat_id'		=> $chatID,
-			'text'			=> $message,
-			'parse_mode'	=> 'HTML',
-		];
-		return $this->telegram_curl($token, 'sendMessage', $params);
-	}
-
-	private function sendPhoto($chatID, $caption, $photo, $token) {
-		$params = [
-			'chat_id'		=> $chatID,
-			'photo'			=> new \CURLFile($photo),
-			'caption'		=> $caption,
-			'parse_mode'	=> 'HTML',
-		];
-		return $this->telegram_curl($token, 'sendPhoto', $params);
+		// TODO: gestisci errore ($posted === false) a questo punto
 	}
 
 	private function telegram_curl ($token, $method, $params = []) {
