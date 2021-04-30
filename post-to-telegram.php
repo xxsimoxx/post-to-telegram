@@ -30,6 +30,9 @@ class PostToTelegram{
 
 	public function __construct() {
 
+		// Load text domain.
+		add_action('plugins_loaded', [$this, 'text_domain']);
+
 		// Add settings page.
 		add_action('admin_menu', [$this, 'add_settings_page']);
 
@@ -40,6 +43,10 @@ class PostToTelegram{
 		// Uninstall.
 		register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
 
+	}
+
+	public function text_domain() {
+		load_plugin_textdomain('ptt', false, basename(dirname(__FILE__)).'/languages');
 	}
 
 	public function add_publish_checkbox($post_obj) {
@@ -222,7 +229,7 @@ class PostToTelegram{
 			return '';
 		}
 
-		$bot_data = $this->telegram_curl(
+		$raw_data = $this->telegram_curl(
 			$token,
 			'getChatMember',
 			[
@@ -230,6 +237,8 @@ class PostToTelegram{
 				'user_id' => preg_replace('/^([0-9]+):.*/', '\1', $token),
 			 ]
 		);
+
+		$bot_data = json_decode($raw_data, false);
 
 		if (! $bot_data->ok === true || !isset($bot_data->result->status) || $bot_data->result->status !== 'administrator') {
 			return '<p class="error">'.esc_html__('Seems that your bot is not an administrator of the channel.', 'ptt').'</p>';
@@ -241,7 +250,8 @@ class PostToTelegram{
 
 	private function getChats($token) {
 
-		$data = $this->telegram_curl($token, 'getUpdates');
+		$raw_data = $this->telegram_curl($token, 'getUpdates');
+		$data = json_decode($raw_data, false);
 
 		if ($data->ok !== true) {
 			return esc_html__('Please check you bot token.', 'ptt');
