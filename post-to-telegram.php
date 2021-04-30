@@ -103,6 +103,7 @@ class PostToTelegram{
 		$image_path = $this->get_thumbnail_path($post_id);
 
 		$posted = $this->post_to_telegram($page_url, $image_path);
+
 		if ($posted === true) {
 			update_post_meta($post_id, 'ptt-last-sent', date_i18n('D j F G:i'));
 			return;
@@ -118,14 +119,23 @@ class PostToTelegram{
 		if ($options['bot-token'] === '' || $options['channel'] === '') {
 			return false;
 		}
-		
+
+		$params = [
+			'chat_id'		=> $options['channel'],
+			'parse_mode'	=> 'HTML',
+		];
 
 		if ($image_path === false) {
-			$response = $this->sendMessage($options['channel'], $page_url, $options['bot-token']);
+			$params['text']		= $page_url;
+			$method				= 'sendMessage';
 		} else {
-			$response = $this->sendPhoto($options['channel'], $page_url, $image_path, $options['bot-token']);
+			$params['photo']	= new \CURLFile($image_path);
+			$params['caption']	= $page_url;
+			$method				= 'sendPhoto';
+
 		}
 
+		$response = $this->telegram_curl($options['bot-token'], $method, $params);
 		$result = json_decode($response, true);
 
 		return ($result['ok'] === true);
