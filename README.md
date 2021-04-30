@@ -28,11 +28,11 @@ _Example: adding text to the message_
 ```php
 add_filter( 'ptt_query_params' , 'myprefix_telegram_before_text' , 10 , 3 );
 
-public function myprefix_telegram_before_text($params, $post_id, $method) {
-	if ($method === 'sendMessage') {
-		$params['text'] = '<b>Nuovo articolo!</b> '.$params['text'];
+public function myprefix_telegram_before_text( $params, $post_id, $method ) {
+	if ( $method === 'sendMessage' ) {
+		$params[ 'text' ] = '<b>Nuovo articolo!</b> ' . $params[ 'text' ];
 	} else {
-		$params['caption'] = '<b>Nuovo articolo!</b> '.$params['caption'];
+		$params[ 'caption' ] = '<b>Nuovo articolo!</b> ' . $params[ 'caption' ];
 	}
 	return $params;
 }
