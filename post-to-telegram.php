@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Add auto updater https://codepotent.com/classicpress/plugins/update-manager/
-// require_once('classes/UpdateClient.class.php');
+require_once('classes/UpdateClient.class.php');
 
 class PostToTelegram{
 
