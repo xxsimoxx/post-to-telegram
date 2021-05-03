@@ -110,7 +110,7 @@ class PostToTelegram{
 		$page_url = get_permalink($post_id);
 
 		if ($page_url === false) {
-			return;
+			return false;
 		}
 
 		$image_path = $this->get_thumbnail_path($post_id);
@@ -136,7 +136,6 @@ class PostToTelegram{
 
 		if ($result['ok'] === true) {
 			update_post_meta($post_id, 'ptt-last-sent', date_i18n('D j F G:i'));
-			return;
 		}
 
 		// TODO: gestisci errore ($posted === false) a questo punto
