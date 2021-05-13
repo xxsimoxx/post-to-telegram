@@ -39,6 +39,7 @@ class PostToTelegram{
 		// Add and handle send checkbox
 		add_action('post_submitbox_misc_actions', [$this, 'add_publish_checkbox']);
 		add_action('save_post', [$this, 'ptt_do'], 10, 3);
+		add_action('admin_notices', [$this, 'display_send_error']);
 
 		// Uninstall.
 		register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
@@ -47,6 +48,27 @@ class PostToTelegram{
 
 	public function text_domain() {
 		load_plugin_textdomain('ptt', false, basename(dirname(__FILE__)).'/languages');
+	}
+
+	public function display_send_error() {
+
+		if (!array_key_exists('ptt-is-error', $_GET)) {
+			return;
+		}
+
+		$details = get_transient('ptt-error-code');
+		if ($details === false || !array_key_exists('description', $details)) {
+			return;
+		}
+
+		echo '<div class="error"><p>';
+		_e('Error sending to telegram channel.', 'ptt');
+		echo '<br>';
+		_e('Details:', 'ptt');
+		echo '<br><code>';
+		echo $details['description'];
+		echo '</code></p></div>';
+
 	}
 
 	public function add_publish_checkbox($post_obj) {
@@ -136,9 +158,14 @@ class PostToTelegram{
 
 		if ($result['ok'] === true) {
 			update_post_meta($post_id, 'ptt-last-sent', date_i18n('D j F G:i'));
+			return;
 		}
 
-		// TODO: gestisci errore ($posted === false) a questo punto
+		set_transient('ptt-error-code', $result, 60);
+		add_filter('redirect_post_location', function($location) {
+			return add_query_arg('ptt-is-error', 'yes', $location);
+		});
+
 	}
 
 	private function telegram_curl ($token, $method, $params = []) {
