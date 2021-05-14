@@ -339,6 +339,7 @@ class PostToTelegram{
 	public static function uninstall() {
 		delete_option('ptt-config');
 		delete_transient('ptt-error-code');
+		delete_post_meta_by_key('ptt-last-sent');
 	}
 
 }
