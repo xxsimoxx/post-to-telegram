@@ -57,6 +57,8 @@ class PostToTelegram{
 		}
 
 		$details = get_transient('ptt-error-code');
+		delete_transient('ptt-error-code');
+
 		if ($details === false || !array_key_exists('description', $details)) {
 			return;
 		}
@@ -336,6 +338,7 @@ class PostToTelegram{
 
 	public static function uninstall() {
 		delete_option('ptt-config');
+		delete_transient('ptt-error-code');
 	}
 
 }
