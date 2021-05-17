@@ -3,7 +3,7 @@
  * Plugin Name: Post to Telegram
  * Plugin URI: https://software.gieffeedizioni.it
  * Description: Share your posts to your telegram channel.
- * Version: 0.0.1
+ * Version: 1.0.0
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Author: Gieffe edizioni srl
@@ -249,6 +249,7 @@ class PostToTelegram{
 		submit_button();
 
 		echo '</form></div>';
+
 	}
 
 	private function validateChat($token, $chat) {
@@ -306,6 +307,7 @@ class PostToTelegram{
 		}
 
 		return $message;
+
 	}
 
 	private function warn($message, $line = false, $file = false) {
