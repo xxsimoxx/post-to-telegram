@@ -67,5 +67,5 @@ public function myprefix_telegram_before_text( $params, $post_id, $method ) {
 
 
 == Changelog ==
-= 0.0.1 =
-* No changelog until final
+= 1.0.0 =
+* First release.

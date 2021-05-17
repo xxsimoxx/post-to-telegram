@@ -5,6 +5,8 @@ If there is one, post the featured image.
 
 This plugin is written for ClassicPress.
 
+![screenshot](images/screenshot-1.jpg)
+
 ## Usage
 
 - Create your channel.
