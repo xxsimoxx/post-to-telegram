@@ -80,7 +80,6 @@ class PostToTelegram{
 		if ($options['bot-token'] === '' || $options['channel'] === '') {
 			echo '<div class="ptt-div misc-pub-section misc-pub-section-last">';
 			echo '<label><input type="checkbox" disabled value="1" name="ptt-do" />'.__('Review your config before posting to Telegram.', 'ptt').'</label>';
-			echo $last_sent_message;
 			echo '</div>';
 			return;
 		}
