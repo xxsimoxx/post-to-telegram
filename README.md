@@ -1,6 +1,6 @@
 # Post to Telegram
 
-When editing a post, just check a checkbox and when you publish the post a link to it will be sent to your Telegram channel.
+When editing a post, just check a checkbox and when you hit "publish" a link to the post will be sent to your Telegram channel.
 If there is one, post the featured image.
 
 This plugin is written for ClassicPress.
