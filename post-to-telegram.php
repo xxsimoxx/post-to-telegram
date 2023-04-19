@@ -3,7 +3,7 @@
  * Plugin Name: Post to Telegram
  * Plugin URI: https://software.gieffeedizioni.it
  * Description: Share your posts to your telegram channel.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires CP: 1.1
  * Requires PHP: 5.6
  * License: GPL2
