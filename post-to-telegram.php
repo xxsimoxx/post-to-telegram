@@ -335,7 +335,7 @@ class PostToTelegram{
 			return codepotent_php_error_log_viewer_log($message, 'notice', $file, $line);
 		}
 
-		trigger_error(print_r($x, true), E_USER_WARNING);
+		trigger_error(print_r($message, true), E_USER_WARNING);
 
 	}
 
