@@ -225,7 +225,7 @@ class PostToTelegram{
 
 		echo '<table class="form-table"><tr><th scope="row">';
 		echo '<label for="bot-token">'.esc_html__('Bot token', 'ptt').'</label></th>';
-		echo '<td><input name="bot-token" type="text" id="bot-token" value="'.$options['bot-token'].'" class="regular-text" />';
+		echo '<td><input name="bot-token" type="text" id="bot-token" size="60" value="'.$options['bot-token'].'" class="regular-text" />';
 		echo '<p class="description">'.esc_html__('Secret token of the Bot you are using to post.', 'ptt').'</p></td></tr>';
 
 		$tips = '';
@@ -250,6 +250,12 @@ class PostToTelegram{
 		submit_button();
 
 		echo '</form></div>';
+// https://t.me/+h_n9tQVw2LBhM2Fk   7773702443:AAHoZjv7LLkJYt85xT21TeAU-NeblbD_SPU
+		$more_info = __(
+			'<ol><li>Connect to BotFather and text <code>/newbot</code></li><li>Choose, when prompted, a name and a username for your bot.</li><li>BotFather will then answer with a token.</li><li>Add your new bot as an administrator of your channel.</li></ol>', //phpcs:ignore WordPress.WP.I18n.NoHtmlWrappedStrings
+			'ptt'
+		);
+		echo '<details><summary>'.esc_html__('Instruction for creating a bot', 'ptt').'</summary>'.wp_kses_post($more_info).'</details>';
 
 	}
 
