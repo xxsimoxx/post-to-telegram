@@ -7,6 +7,8 @@ This plugin is written for ClassicPress.
 
 ![screenshot](images/screenshot-1.jpg)
 
+![screenshot](images/screenshot-2.jpg)
+
 ## Usage
 
 - Create your channel.
@@ -21,6 +23,8 @@ You can also add a text that will be prepended to the link.
 Having troubles finding your channel ID?
 Try revoking admin rights to your boot, give it admin rights again, and save the changes leaving Channel field empty.
 Maybe some hints will be shown!
+
+![screenshot](images/screenshot-3.jpg)
 
 ## Filters
 
