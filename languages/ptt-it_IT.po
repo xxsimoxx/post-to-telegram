@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Post to Telegram 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/post-to-telegram\n"
-"POT-Creation-Date: 2021-05-13T12:58:11+00:00\n"
+"POT-Creation-Date: 2025-03-26T11:21:22+01:00\n"
 "PO-Revision-Date: 2021-04-30 16:14+0200\n"
 "Last-Translator: root <root@giecloud1.gieffeedizioni.it>\n"
 "Language-Team: Italian\n"
@@ -16,43 +16,60 @@ msgstr ""
 "X-Domain: ptt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: post-to-telegram.php:224
+#: post-to-telegram.php:272
+msgid ""
+"<ol><li>Connect to BotFather and type <code>/newbot</code></li><li>Choose, "
+"when prompted, a name and a username for your bot.</li><li>BotFather will "
+"then answer with a token.</li><li>Add your new bot as an administrator of "
+"your channel.</li></ol>"
+msgstr "<ol><li>Connettiti a BotFather e digita <code>/newbot</code></li><li>Quando richiesto scegli un nome ed un nome utente per il tuo bot.</li><li>BotFather risponder&agrave; con un token.</li><li>Aggiungi il bot creato come amministratore del tuo canale.</li></ol>"
+
+#: post-to-telegram.php:240
 msgid "Bot token"
 msgstr ""
 
-#: post-to-telegram.php:239
+#: post-to-telegram.php:255
 msgid "Channel"
 msgstr "Canale"
 
-#: post-to-telegram.php:241
+#: post-to-telegram.php:257
 msgid "Channel (name or id) to post to."
 msgstr "Nome o ID del Canale su cui postare"
 
-#: post-to-telegram.php:67
+#: post-to-telegram.php:72
 msgid "Details:"
 msgstr "Dettagli:"
 
-#: post-to-telegram.php:233
+#: post-to-telegram.php:249
 msgid "Dont't know what is your channel ID or something is not working?"
 msgstr "Non conosci l'ID del canale o qualcosa non funziona?"
 
-#: post-to-telegram.php:65
+#: post-to-telegram.php:70
 msgid "Error sending to telegram channel."
 msgstr "Errore nell'invio al canale Telegram."
 
 #. Author of the plugin
+#: post-to-telegram.php
 msgid "Gieffe edizioni srl"
 msgstr ""
 
-#: post-to-telegram.php:95
+#: post-to-telegram.php:276
+msgid "Instruction for creating a bot in Telegram"
+msgstr "Istruzioni per creare un bot in Telegram"
+
+#: post-to-telegram.php:99
 msgid "Last time posted:"
 msgstr "Postato l'ultima volta:"
 
-#: post-to-telegram.php:234
+#: post-to-telegram.php:250
 msgid "Leave channel fiels blank to get suggestions below."
 msgstr "Lascia il campo Canale vuoto per avere suggerimenti qui sotto."
 
-#: post-to-telegram.php:303
+#: post-to-telegram.php:260
+msgid "Message"
+msgstr "Messaggio"
+
+#: post-to-telegram.php:331
 msgid ""
 "No suggestion found. Try giving again your bot administration privileges in "
 "your channel."
@@ -60,49 +77,56 @@ msgstr ""
 "Nessun suggerimento trovato. Prova a ridare ancora i permessi di "
 "amministratore del tuo canale al tuo bot."
 
-#: post-to-telegram.php:283
+#: post-to-telegram.php:311
 msgid "Please check you bot token."
 msgstr "Per favore controlla il token del bot"
 
 #. Plugin Name of the plugin
-#: post-to-telegram.php:99 post-to-telegram.php:183
+#: post-to-telegram.php post-to-telegram.php:103 post-to-telegram.php:199
 msgid "Post to Telegram"
-msgstr ""
+msgstr "Invia su Telegram"
 
-#: post-to-telegram.php:183 post-to-telegram.php:218
+#: post-to-telegram.php:199 post-to-telegram.php:234
 msgid "Post to Telegram settings"
 msgstr "Impostazioni Post to Telegram"
 
-#: post-to-telegram.php:80
+#: post-to-telegram.php:262
+msgid "Prepend a message to article URL (Like \"News on my site!\")."
+msgstr "Aggiungi un messaggio prima del link (Es. \"E' uscito un nuovo articolo!\")"
+
+#: post-to-telegram.php:85
 msgid "Review your config before posting to Telegram."
 msgstr "Controlla la configurazione prima di postare su Telegram."
 
-#: post-to-telegram.php:226
+#: post-to-telegram.php:242
 msgid "Secret token of the Bot you are using to post."
 msgstr "Token segreto del Bot che userai per postare su Telegram."
 
-#: post-to-telegram.php:270
+#: post-to-telegram.php:298
 msgid "Seems that your bot is not an administrator of the channel."
 msgstr "Sembra che il tuo bot non sia amministratore del canale."
 
-#: post-to-telegram.php:210
+#: post-to-telegram.php:222
 msgid "Settings have been saved."
 msgstr "Impostazioni salvate."
 
 #. Description of the plugin
+#: post-to-telegram.php
 msgid "Share your posts to your telegram channel."
-msgstr ""
+msgstr "Condividi i tuoi articoli sul tuo canale Telegram"
 
 #. Translators: 1 is channel name, 2 is channel ID
-#: post-to-telegram.php:298
+#: post-to-telegram.php:326
 msgid "Your bot seems to be administrator of channel %1$s (Channel ID: %2$s)."
 msgstr ""
 "Sembra che il tuo bot sia amministratore del canale %1$s (ID canale: %2$s)."
 
 #. Plugin URI of the plugin
+#: post-to-telegram.php
 msgid "https://software.gieffeedizioni.it"
 msgstr ""
 
 #. Author URI of the plugin
+#: post-to-telegram.php
 msgid "https://www.gieffeedizioni.it"
 msgstr ""
