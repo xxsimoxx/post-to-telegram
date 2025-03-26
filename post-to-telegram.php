@@ -270,10 +270,10 @@ class PostToTelegram{
 		echo '</form></div>';
 
 		$more_info = __(
-			'<ol><li>Connect to BotFather and text <code>/newbot</code></li><li>Choose, when prompted, a name and a username for your bot.</li><li>BotFather will then answer with a token.</li><li>Add your new bot as an administrator of your channel.</li></ol>', //phpcs:ignore WordPress.WP.I18n.NoHtmlWrappedStrings
+			'<ol><li>Connect to BotFather and type <code>/newbot</code></li><li>Choose, when prompted, a name and a username for your bot.</li><li>BotFather will then answer with a token.</li><li>Add your new bot as an administrator of your channel.</li></ol>', //phpcs:ignore WordPress.WP.I18n.NoHtmlWrappedStrings
 			'ptt'
 		);
-		echo '<details><summary>'.esc_html__('Instruction for creating a bot', 'ptt').'</summary>'.wp_kses_post($more_info).'</details>';
+		echo '<details><summary>'.esc_html__('Instruction for creating a bot in Telegram', 'ptt').'</summary>'.wp_kses_post($more_info).'</details>';
 
 	}
 
